@@ -4,6 +4,37 @@
 
 # *Contents*
 ------------
+- [Introduction to RISC-V and ISA](#introduction-to-risc-v-and-isa)
+    + [RISC-V](#risc-v)
+    + [GNU compiler toolchain](#gnu-compiler-toolchain)
+      - [Hardware Abstraction Layer](#hardware-abstraction-layer)
+  * [Fundamental Concepts](#fundamental-concepts)
+    + [Integer number representation](#integer-number-representation)
+      - [64-bit Signed and Unsigned Number Systems](#64-bit-signed-and-unsigned-number-systems)
+    + [Introduction To Application Binary Interface](#introduction-to-application-binary-interface)
+    + [Memory Allocation For Double Words and Instructions](#memory-allocation-for-double-words-and-instructions)
+      - [Useful Commands Table](#useful-commands-table)
+      - [Practice](#practice)
+- [Digital Logic with TL-Verilog and Makerchip](#digital-logic-with-tl-verilog-and-makerchip)
+    + [Tools](#tools)
+      - [TL-Verilog](#tl-verilog)
+      - [Makerchip](#makerchip)
+  * [Key Concepts and labs](#key-concepts-and-labs)
+    + [Digital Logic](#digital-logic)
+    + [Logic Gates](#logic-gates)
+      - [Inverter Lab](#inverter-lab)
+      - [2-Input Logic Gates Lab](#2-input-logic-gates-lab)
+    + [Combinational Logic](#combinational-logic)
+      - [Combinational Calculator Lab](#combinational-calculator-lab)
+    + [Sequential Logic](#sequential-logic)
+      - [Free running counter](#free-running-counter)
+      - [Sequential Calculator Lab](#sequential-calculator-lab)
+    + [Pipelined Logic](#pipelined-logic)
+      - [Pipelined 2-Cycle Calculator Lab](#pipelined-2-cycle-calculator-lab)
+    + [Validity](#validity)
+      - [2-Cycle Calculator with Validity](#2-cycle-calculator-with-validity)
+      - [Calculator with Memory](#calculator-with-memory)
+    + [Simplified Table](#simplified-table)
 
 # Introduction to RISC-V and ISA
 ### RISC-V
@@ -148,7 +179,7 @@ To go through the steps to make it run on a RISC-V CPU we can use this [script](
 *Thanks [@stevehoover](https://github.com/stevehoover) and [Redwood Team](https://www.redwoodeda.com/about)! :]*
 
 ## Key Concepts and labs
-### What is Digital Logic?
+### Digital Logic
 > *"...picture yourself making your way through all the rams and
 roms and approaching this shining jewel, a chorus of voices
 and a blast of trumpets in the background heralding the great
