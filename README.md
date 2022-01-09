@@ -4,27 +4,8 @@
 
 # *Contents*
 ------------
-- [Introduction to RISC-V and ISA](#introduction-to-risc-v-and-isa)
-  * [RISC-V](#risc-v)
-  * [GNU compiler toolchain](#gnu-compiler-toolchain)
-    + [Hardware Abstraction Layer](#hardware-abstraction-layer)
-- [Fundamental Concepts](#fundamental-concepts)
-  * [Integer number representation](#integer-number-representation)
-    + [64-bit Signed and Unsigned Number Systems](#64-bit-signed-and-unsigned-number-systems)
-  * [Introduction To Application Binary Interface](#introduction-to-application-binary-interface)
-  * [Memory Allocation For Double Words and Instructions](#memory-allocation-for-double-words-and-instructions)
-    + [Useful Commands Table](#useful-commands-table)
-    + [Practice](#practice)
-- [Digital Logic with TL-Verilog and Makerchip](#digital-logic-with-tl-verilog-and-makerchip)
-  * [Combinational logic in TL-Verilog using Makerchip](#combinational-logic-in-tl-verilog-using-makerchip)
-  * [Sequential logic](#sequential-logic)
-  * [Pipelined logic](#pipelined-logic)
-    + [Pipelined Logic And Re-Timing](#pipelined-logic-and-re-timing)
-  * [Validity](#validity)
-    + [Introduction To Validity](#introduction-to-validity)
-    + [Introduction To Hierarchy Concept](#introduction-to-hierarchy-concept)
 
-## Introduction to RISC-V and ISA
+# Introduction to RISC-V and ISA
 ### RISC-V
 > RISC-V is an open standard Instruction Set Architecture (ISA) based on established reduced instruction set computer (RISC) principles. 
 
@@ -154,18 +135,82 @@ loop:
 ```  
 To go through the steps to make it run on a RISC-V CPU we can use this [script](https://github.com/kunalg123/riscv_workshop_collaterals/blob/master/labs/rv32im.sh) for building and working with HDL steps. Additional lab codes and supporting files can be found in its [source directory](https://github.com/kunalg123/riscv_workshop_collaterals).
  
-## Digital Logic with TL-Verilog and Makerchip
-### Combinational logic in TL-Verilog using Makerchip
-**Introduction To Logic Gates**
-**Basic Mux Implementation And Introduction To Makerchip**
-**Labs For Combinational Logic**
+# Digital Logic with TL-Verilog and Makerchip
+> Tools and concepts for designing a RISC-V core.
 
-### Sequential logic
-### Pipelined logic
-#### Pipelined Logic And Re-Timing   
+### Tools
+#### [TL-Verilog](https://www.redwoodeda.com/tl-verilog)
+> As stated in their [main website](http://www.tl-x.org/), TL-X is a set of HDL (Hardware Description Language) features defined as extensions to existing HDL languages, including Verilog (as "TL-Verilog"), VHDL (as "TL-VHDL"), and SystemC (as "TL-C"). 
+
+#### [Makerchip](https://www.makerchip.com/)
+> Makerchip is an online platform for open access to tools and resources with the mission of aiding and simplify the entire process of circuit design.
+
+*Thanks [@stevehoover](https://github.com/stevehoover) and [Redwood Team](https://www.redwoodeda.com/about)! :]*
+
+## Key Concepts and labs
+### What is Digital Logic?
+> *"...picture yourself making your way through all the rams and
+roms and approaching this shining jewel, a chorus of voices
+and a blast of trumpets in the background heralding the great
+seat of all-knowing logic."* - James W. Heisig
+
+The book [Remembering the Kanji vol.1](https://www.amazon.com.br/Remembering-Kanji-Complete-Japanese-Characters/dp/0824835921) by James W. Heisig defines *logic* (理) as *"something like a central jewel in a computer, like the jewels in old clocks that keep them running smoothly."*. With that in mind, *logic*, for computers, can be summerized as **fundamental operations and structures upon which computer systems are built.** 
+
+The digital part of computer logic is called *gates* and is responsible for performing some of the operations in these systems.
+
+### Logic Gates
+> A **logic gate** is an idealized model of computation using a *Boolean function* which performs *logic operations* taking one or more binary inputs and producing a single binary output.
+
+There are many logic gates, but common ones are:
+
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/basic_logic_gates.png)
+	
+#### Inverter Lab
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/inverter.png)
+
+#### 2-Input Logic Gates Lab
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/logic_gates.png)
+
+### Combinational Logic
+> A *combinational circuit* can be seen as a digital logic circuit in which the output depends on a combination of inputs at their present values. 
+
+#### Combinational Calculator Lab
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/comb_calc.png)
+
+### Sequential Logic
+> Further from combinational logic, sequential logic outputs depends not only on the present value of its input signals but on the sequence of past inputs.
+
+#### Free running counter	
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/free_running_counter.png)	
+
+#### Sequential Calculator Lab
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/seq_calc.png)
+	
+### Pipelined Logic
+> On top of sequential and combination logic, pipelined logic allows overlapping execution of multiple operations within the same circuit by processing the elements in different defined stages.
+
+#### Pipelined 2-Cycle Calculator Lab
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/pipelined_calc.png)
+	
 ### Validity
-#### Introduction To Validity
-#### Introduction To Hierarchy Concept
+> To validate the output of a operation, a “when” scope `?$valid` can be used.
+
+#### 2-Cycle Calculator with Validity
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/pipe_calc_w_validity.png)
+	
+#### Calculator with Memory
+![image](https://github.com/nutc4k3/RISCV-Notes/blob/8c98399f3d04a15d84b3617f361965869cdb8870/images/calc_mem.png)
+	
+### Simplified Table
+
+**To be added**
+
+
+
+
+
+
+
 
 
 
